@@ -20,9 +20,9 @@ restService.use(bodyParser.json());
 
 restService.post("/location", function(req, res) {
   var msg =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.location
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.location
       ? ''
       : Invalid_ERR;
 
@@ -48,6 +48,17 @@ restService.post("/location", function(req, res) {
 return res.json({
     speech: msg,
     displayText: msg,
-    source: "Hajj-Assistant-Engine"
+    source: "Hajj-Assistant-Engine", 
+    "fulfillmentText": msg,
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            msg
+          ]
+        }
+      }
+    ],
   });
+  // end of reutrn
 });
