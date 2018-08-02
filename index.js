@@ -20,9 +20,9 @@ restService.use(bodyParser.json());
 var msg = '';
 restService.post("/location", function(req, res) {
   var valid =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.location
+    req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.location
       ? true
       : false;
   if(!valid)
@@ -76,9 +76,9 @@ return res.json({
 
 restService.get("/location", function(req, res) {
   var valid =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.location
+    req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.location
       ? true
       : false;
   if(!valid)
