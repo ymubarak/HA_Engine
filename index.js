@@ -26,7 +26,7 @@ restService.post("/location", function(req, res) {
       ? true
       : false;
   if(!valid)
-    msg = Object.keys(req.body);
+    msg = Invalid_ERR;
   else {
     // connect to google api
     var web_site = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=' + API_KEY;
@@ -82,7 +82,7 @@ restService.get("/location", function(req, res) {
       ? true
       : false;
   if(!valid)
-    msg = Object.keys(req.body);
+    msg = Invalid_ERR;
   else {
     // connect to google api
     var web_site = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=' + API_KEY;
